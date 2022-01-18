@@ -10,6 +10,5 @@ export const Template = styled.div`
   @media (max-width: 850px){
     position: absolute;
     height: auto;
-    overflow: auto;
   }
 `;
