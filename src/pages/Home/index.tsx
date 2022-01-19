@@ -41,10 +41,10 @@ const Home = () => {
   const [selectGoalPower, setSelectGoalPower] = useState(initialSelectGoalPower);
   const [selectBlockReward, setSelectBlockReward] = useState(initialBlockReward);
 
-  const handleLocalStorage = () => {
-    localStorage.setItem('lsCrypto', crypto);
-    localStorage.setItem('lsFiatType', fiatType);
-  };
+  /*   const handleLocalStorage = () => {
+      localStorage.setItem('lsCrypto', crypto);
+      localStorage.setItem('lsFiatType', fiatType);
+    }; */
 
   function onChangeBlockReward(e: ChangeEvent<HTMLSelectElement>) {
     setSelectBlockReward(Number(e.target.value));
