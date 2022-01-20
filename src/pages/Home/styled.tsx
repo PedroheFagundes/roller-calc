@@ -14,6 +14,8 @@ export const HomeArea = styled.div`
     justify-content: center;
     padding: 20px;
     font-size: 23px;
+    margin: 0;
+    font-weight: normal;
     span strong {
       color: #8984b1;
     }

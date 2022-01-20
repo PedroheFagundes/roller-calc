@@ -99,7 +99,7 @@ const Home = () => {
 
   return (
     <HomeArea>
-      <div className="intro"><span>Calculate how much your <strong>power</strong> can mine and convert it to your <strong>currency</strong>!</span></div>
+      <h1 className="intro"><span>Calculate how much your <strong>power</strong> can mine and convert it to your <strong>currency</strong>!</span></h1>
       <div className="main-content">
         <div className="input-area">
           <div>
