@@ -1,62 +1,68 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { HomeArea } from "./styled";
 
 const Home = () => {
 
+  const initialCrypto = () => {
+    const crypto = localStorage.getItem('lsCrypto') || "rlt";
+    return crypto;
+  };
+  const initialFiatType = () => {
+    const fiatType = localStorage.getItem('lsFiatType') || "usd";
+    return fiatType;
+  };
   const initialNetworkPower = () => {
-    const networkPower = 0;
+    const networkPower = Number(localStorage.getItem('lsNetworkPower')) || 0;
     return networkPower;
   };
   const initialSelectNetworkPower = () => {
-    const selectNetworkPower = 1000000000;
+    const selectNetworkPower = Number(localStorage.getItem('lsSelectNetworkPower')) || 1000000000;
     return selectNetworkPower;
   };
   const initialGoalPower = () => {
-    const goalPower = 0;
+    const goalPower = Number(localStorage.getItem('lsGoalPower')) || 0;
     return goalPower;
   };
   const initialSelectGoalPower = () => {
-    const selectGoalPower = 1000;
+    const selectGoalPower = Number(localStorage.getItem('lsSelectGoalPower')) || 1000;
     return selectGoalPower;
   };
   const initialBlockReward = () => {
-    const selectBlockReward = 30;
+    const selectBlockReward = Number(localStorage.getItem('lsSelectBlockReward')) || 30;
     return selectBlockReward;
   };
-  const initialFiatType = () => {
-    const fiatType = "usd";
-    return fiatType;
-  };
-  const initialCrypto = () => {
-    const crypto = "rlt";
-    return crypto;
-  };
-  const [crypto, setCrypto] = useState(initialCrypto);
-  const [fiatType, setFiatType] = useState(initialFiatType);
+
   const [fiat, setFiat] = useState(0);
   const [blockReward, setBlockReward] = useState(0);
+  const [crypto, setCrypto] = useState(initialCrypto);
+  const [fiatType, setFiatType] = useState(initialFiatType);
   const [networkPower, setNetworkPower] = useState(initialNetworkPower);
-  const [goalPower, setGoalPower] = useState(initialGoalPower);
   const [selectNetworkPower, setSelectNetworkPower] = useState(initialSelectNetworkPower);
+  const [goalPower, setGoalPower] = useState(initialGoalPower);
   const [selectGoalPower, setSelectGoalPower] = useState(initialSelectGoalPower);
   const [selectBlockReward, setSelectBlockReward] = useState(initialBlockReward);
 
-  const handleLocalStorage = () => {
+  const handleLocalStorage = useCallback(() => {
     localStorage.setItem('lsCrypto', crypto);
     localStorage.setItem('lsFiatType', fiatType);
-  };
+    localStorage.setItem('lsNetworkPower', networkPower.toString());
+    localStorage.setItem('lsSelectNetworkPower', selectNetworkPower.toString());
+    localStorage.setItem('lsGoalPower', goalPower.toString());
+    localStorage.setItem('lsSelectGoalPower', selectGoalPower.toString());
+    localStorage.setItem('lsSelectBlockReward', selectBlockReward.toString());
+  }, [crypto, fiatType, goalPower, networkPower, selectBlockReward, selectGoalPower, selectNetworkPower]);
 
   function onChangeBlockReward(e: ChangeEvent<HTMLSelectElement>) {
     setSelectBlockReward(Number(e.target.value));
     setCrypto(e.target.options[e.target.selectedIndex].text.toLowerCase());
-    handleLocalStorage();
   }
 
   useEffect(() => {
     let reward = (goalPower * selectGoalPower) / (networkPower * selectNetworkPower) * selectBlockReward;
     if (isNaN(reward)) reward = 0;
     setBlockReward(reward);
-  }, [goalPower, networkPower, selectBlockReward, selectGoalPower, selectNetworkPower]);
+    handleLocalStorage();
+  }, [goalPower, handleLocalStorage, networkPower, selectBlockReward, selectGoalPower, selectNetworkPower]);
 
   if (crypto === "matic") {
     var requestMATIC = 'https://api.binance.com/api/v3/trades?symbol=MATICBTC';
