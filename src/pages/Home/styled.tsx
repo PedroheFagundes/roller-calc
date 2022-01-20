@@ -76,7 +76,7 @@ export const HomeArea = styled.div`
             }
             select {
               margin-top: 5px;
-              width: 25%;
+              width: 30%;
               height: 35px;
               border-bottom-right-radius: 7px;
               border-top-right-radius: 7px;
@@ -143,7 +143,7 @@ export const HomeArea = styled.div`
   td:nth-child(4){
     background-color: #2F3045;
     text-align:center;
-    width: 70px;
+    width: 110px;
   }
   td:nth-child(4){
     width: 55px;

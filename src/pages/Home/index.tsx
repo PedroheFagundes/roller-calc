@@ -84,6 +84,17 @@ const Home = () => {
       }
     }
   }
+  else if (crypto === "sat (btc)") {
+    var requestBTC = `https://api.coinconvert.net/convert/btc/${fiatType}?amount=1`;
+    var preRequestBTC = new XMLHttpRequest();
+    preRequestBTC.open('GET', requestBTC);
+    preRequestBTC.responseType = 'json';
+    preRequestBTC.send();
+    preRequestBTC.onload = function () {
+      var response = preRequestBTC.response;
+      setFiat((response[Object.keys(response)[2]]) * blockReward / 100000000);
+    }
+  }
   else {
     var requestURL;
     if (crypto === "rlt") {
@@ -111,24 +122,6 @@ const Home = () => {
         <div className="input-area">
           <div>
             <div className="input">
-              <span>Enter <strong>Network Power</strong> For Desired Coin</span>
-              <div>
-                <input type="number"
-                  defaultValue={networkPower}
-                  onChange={(e) => setNetworkPower(Number(e.target.value))}
-                />
-                <select
-                  defaultValue={selectNetworkPower}
-                  onChange={(e) => setSelectNetworkPower(Number(e.target.value))}
-                >
-                  <option value="1">GH/s</option>
-                  <option value="1000">TH/s</option>
-                  <option value="1000000">PH/s</option>
-                  <option value="1000000000">EH/s</option>
-                </select>
-              </div>
-            </div>
-            <div className="input">
               <span>Enter <strong>Your</strong> Desired Goal Power</span>
               <div>
                 <input type="number"
@@ -138,6 +131,24 @@ const Home = () => {
                 <select
                   defaultValue={selectGoalPower}
                   onChange={(e) => setSelectGoalPower(Number(e.target.value))}
+                >
+                  <option value="1">GH/s</option>
+                  <option value="1000">TH/s</option>
+                  <option value="1000000">PH/s</option>
+                  <option value="1000000000">EH/s</option>
+                </select>
+              </div>
+            </div>
+            <div className="input">
+              <span>Enter <strong>Network Power</strong> For Desired Coin</span>
+              <div>
+                <input type="number"
+                  defaultValue={networkPower}
+                  onChange={(e) => setNetworkPower(Number(e.target.value))}
+                />
+                <select
+                  defaultValue={selectNetworkPower}
+                  onChange={(e) => setSelectNetworkPower(Number(e.target.value))}
                 >
                   <option value="1">GH/s</option>
                   <option value="1000">TH/s</option>
@@ -159,7 +170,7 @@ const Home = () => {
                   onChange={(e) => onChangeBlockReward(e)}
                 >
                   <option value="30">RLT</option>
-                  <option value="0.0003">BTC</option>
+                  <option value="30000">SAT (BTC)</option>
                   <option value="0.005">ETH</option>
                   <option value="0.012">BNB</option>
                   <option value="3">MATIC</option>
