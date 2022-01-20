@@ -116,6 +116,7 @@ export const HeaderArea = styled.div`
       text-align: center;
       font-size: 25px;
       padding-bottom: 7px;
+      margin: 0;
     }
     .web-navbar {
       display: none;

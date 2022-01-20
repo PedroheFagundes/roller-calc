@@ -23,7 +23,7 @@ const Header = () => {
             <li className='soon'>Data Tables <span>soon</span></li>
             <li className='soon'>Strategies <span>soon</span></li>
           </ul>
-          : <div className='chosen-page'>Calculator</div>}
+          : <h1 className='chosen-page'>Calculator</h1>}
         <ul className='web-navbar'>
           <li>Calculator</li>
           <li className='soon'>Better Coin to Mine <span>soon</span></li>
