@@ -37,6 +37,10 @@ export const HeaderArea = styled.div`
       list-style-type: none;
       color: #fff;
       font-weight: bold;
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
       &:hover {
         color: #8984b1;
         text-shadow: 1px 1px #181928;

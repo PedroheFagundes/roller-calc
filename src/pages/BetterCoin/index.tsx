@@ -1,7 +1,7 @@
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
-import { HomeArea } from "./styled";
+import { BetterCoinArea } from "./styled";
 
-const Home = () => {
+const BetterCoin = () => {
 
   const initialCrypto = () => {
     const crypto = localStorage.getItem('lsCrypto') || "rlt";
@@ -116,8 +116,9 @@ const Home = () => {
 
 
   return (
-    <HomeArea>
-      <h2 className="intro"><span>Calculate how much your <strong>power</strong> can mine and convert it to your <strong>currency</strong>!</span></h2>
+    <BetterCoinArea>
+      <div className="intro"><span>I'm working on it <strong>right now</strong>!</span></div>
+      {/* <div className="description"><span>It is a <strong>technical</strong> and <strong>mathematical</strong> analysis. The better coin <strong>for you</strong> can vary depending on your strategy.</span></div>
       <div className="main-content">
         <div className="input-area">
           <div>
@@ -242,8 +243,8 @@ const Home = () => {
             </table>
           </div>
         </div>
-      </div>
-    </HomeArea >
+      </div> */}
+    </BetterCoinArea >
   );
 }
-export default Home;
+export default BetterCoin;

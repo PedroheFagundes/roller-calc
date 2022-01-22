@@ -1,19 +1,38 @@
 import styled from "styled-components";
 
-export const HomeArea = styled.div`
+export const BetterCoinArea = styled.div`
   height: 100%;
   background-color: #181928;
   .intro {
     color: #fff;
     width: 100%;
     min-width: 450px;
-    height: 85px;
+    height: 35px;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding: 20px;
+    padding: 20px 0 5px 0;
     font-size: 23px;
+    margin: 0;
+    font-weight: normal;
+    span {
+      strong {
+        color: #8984b1;
+      }
+    }
+  }
+  .description {
+    color: #fff;
+    width: 100%;
+    min-width: 450px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 20px 0 30px 0px;
+    font-size: 18px;
     margin: 0;
     font-weight: normal;
     span strong {
@@ -156,8 +175,6 @@ export const HomeArea = styled.div`
   .top-table {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    padding-top: 5px;
-
   }
   .bottom-table {
     border-bottom-left-radius: 8px;

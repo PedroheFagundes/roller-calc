@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { HeaderArea } from './styled';
 
 const Header = () => {
 
   const [openedNavBar, setOpenedNavBar] = useState(false);
+  const [chosenPage, setChosenPage] = useState("Calculator");
 
   const toggleNavBar = () => {
     openedNavBar ? setOpenedNavBar(false) : setOpenedNavBar(true);
@@ -18,15 +20,15 @@ const Header = () => {
         </div>
         {openedNavBar ?
           <ul>
-            <li onClick={() => toggleNavBar()}>Calculator</li>
-            <li className='soon'>Better Coin to Mine <span>soon</span></li>
+            <li onClick={() => toggleNavBar()}><Link to="/" onClick={() => setChosenPage(("Calculator"))}>Calculator</Link></li>
+            <li onClick={() => toggleNavBar()}><Link to="/better-coin" onClick={() => setChosenPage(("Better Coin to Mine"))}>Better Coin to Mine</Link></li>
             <li className='soon'>Data Tables <span>soon</span></li>
             <li className='soon'>Strategies <span>soon</span></li>
           </ul>
-          : <h1 className='chosen-page'>Calculator</h1>}
+          : <h1 className='chosen-page'>{chosenPage}</h1>}
         <ul className='web-navbar'>
-          <li>Calculator</li>
-          <li className='soon'>Better Coin to Mine <span>soon</span></li>
+          <li><Link to="/">Calculator</Link></li>
+          <li><Link to="/better-coin">Better Coin to Mine</Link></li>
           <li className='soon'>Data Tables <span>soon</span></li>
           <li className='soon'>Strategies <span>soon</span></li>
         </ul>
