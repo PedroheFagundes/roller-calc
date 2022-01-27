@@ -27,94 +27,97 @@ export const HomeArea = styled.div`
     max-height: 400px;
     min-width: 850px;
     color: #fff;
-    .input-area {
-      width: 42%;
-      max-width: 378px;
-      height: 100%;
+  }
+  .input-area {
+    width: 42%;
+    max-width: 378px;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    div {
+      width: 90%;
+      height: 95%;
+      border-radius: 10px;
+      background-color: #2F3045;
       display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      div {
-        width: 90%;
-        height: 95%;
-        border-radius: 10px;
-        background-color: #2F3045;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        .input {
-          height: auto;
-          width: 90%;
-          align-items: flex-start;
-          span strong {
-            color: #49ACB5;
-          }
-          div {
-            flex-direction: row;
-            justify-content: center;
-            width: 100%;
-            input {
-              margin-top: 5px;
-              width: 75%;
-              height: 35px;
-              border-bottom-left-radius: 7px;
-              border-top-left-radius: 7px;
-              border-style: none;
-              outline: none;
-              padding-left: 10px;
-              background-color: #181928;
-              color: #fff;
-              &:focus {
-                border: 1px solid #8984b1;
-              }
-              &::-webkit-outer-spin-button,
-              &::-webkit-inner-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-              }
-            }
-            select {
-              margin-top: 5px;
-              width: 30%;
-              height: 35px;
-              border-bottom-right-radius: 7px;
-              border-top-right-radius: 7px;
-              border-style: none;
-              outline: none;
-              background-color: #181928;
-              color: #fff;
-              text-align: center;
-              &:focus {
-                border: 1px solid #8984b1;
-              }
-            }
-          }
-        }
+      flex-direction: column;
+      justify-content: center;;
+      align-items: center;
+    }
+  }
+  .input {
+    height: auto;
+    width: 90%;
+    align-items: flex-start;
+    span {
+      padding-bottom: 5px;
+      strong {
+        color: #49ACB5;
       }
     }
-    .output-area {
-      width: 58%;
-      max-width: 522px;
-      height: 100%;
-      display: flex;
-      align-items: flex-start;
+    div {
+      flex-direction: row;
       justify-content: center;
-      div {
-        width: 90%;
-        height: 95%;
-        border-radius: 10px;
-        background-color: #2F3045;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        span {
-          font-size: 25px;
-          font-weight: bold;
-        }
-        
-      }
+      height: 30px;
+      width: 100%;
+    }
+  }
+  input {
+    margin-top: 5px;
+    width: 75%;
+    height: 35px;
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+    border-style: none;
+    outline: none;
+    padding-left: 10px;
+    background-color: #181928;
+    color: #fff;
+    &:focus {
+      border: 1px solid #8984b1;
+    }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+  select {
+    margin-top: 5px;
+    width: 30%;
+    height: 35px;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+    border-style: none;
+    outline: none;
+    background-color: #181928;
+    color: #fff;
+    text-align: center;
+    &:focus {
+      border: 1px solid #8984b1;
+    }
+  }
+  .output-area {
+    width: 58%;
+    max-width: 522px;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    div {
+      width: 90%;
+      height: 95%;
+      border-radius: 10px;
+      background-color: #2F3045;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      span {
+        font-size: 25px;
+        font-weight: bold;
+      }   
     }
   }
   .currency{
@@ -176,26 +179,26 @@ export const HomeArea = styled.div`
       justify-content: flex-start;
       width: 100%;
       min-width: 0;
-      .input-area {
-        height: 360px;;
-        min-height: 0px;
-        width: 100%;
-        max-width: 600px;
-      }
-      .output-area {
-        height: 300px;;
-        min-height: 0px;
-        width: 100%;
-        max-width: 600px;
-        div {
-          justify-content: flex-start;
-          span {
-            margin: 10px 0;
-          }
-        }
-      }
       table {
         height: 220px;
+      }
+    }
+    .input-area {
+      height: 360px;;
+      min-height: 0px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .output-area {
+      height: 300px;;
+      min-height: 0px;
+      width: 100%;
+      max-width: 600px;
+      div {
+        justify-content: flex-start;
+        span {
+          margin: 10px 0;
+        }
       }
     }
   }

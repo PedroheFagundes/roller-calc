@@ -117,126 +117,194 @@ const BetterCoin = () => {
 
   return (
     <BetterCoinArea>
-      <div className="intro"><span>I'm working on it <strong>right now</strong>!</span></div>
+      <div className="intro"><span>In development <strong>right now</strong>!</span></div>
       {/* <div className="description"><span>It is a <strong>technical</strong> and <strong>mathematical</strong> analysis. The better coin <strong>for you</strong> can vary depending on your strategy.</span></div>
       <div className="main-content">
         <div className="input-area">
-          <div>
-            <div className="input">
-              <span>Enter <strong>Your</strong> Desired Goal Power</span>
-              <div>
-                <input type="number"
-                  defaultValue={goalPower}
-                  onChange={(e) => setGoalPower(Number(e.target.value))}
-                />
-                <select
-                  defaultValue={selectGoalPower}
-                  onChange={(e) => setSelectGoalPower(Number(e.target.value))}
-                >
-                  <option value="1">GH/s</option>
-                  <option value="1000">TH/s</option>
-                  <option value="1000000">PH/s</option>
-                  <option value="1000000000">EH/s</option>
-                </select>
+          <div className="input-area-inner">
+            <span className="input-area-title">Enter <strong>Network Power</strong> For Each Coin</span>
+            <div className="crypto-inputs">
+              <div className="crypto-inputs-left">
+                <div className="input">
+                  <span className="crypto-name"><img src="/rlt.svg" alt="" /> Rollertoken (RLT)</span>
+                  <div>
+                    <input type="number"
+                      defaultValue={networkPower}
+                      onChange={(e) => setNetworkPower(Number(e.target.value))}
+                    />
+                    <select
+                      defaultValue={selectNetworkPower}
+                      onChange={(e) => setSelectNetworkPower(Number(e.target.value))}
+                    >
+                      <option value="1">GH/s</option>
+                      <option value="1000">TH/s</option>
+                      <option value="1000000">PH/s</option>
+                      <option value="1000000000">EH/s</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="input">
+                  <span className="crypto-name"><img src="/btc.svg" alt="" /> Bitcoin (BTC)</span>
+                  <div>
+                    <input type="number"
+                      defaultValue={networkPower}
+                      onChange={(e) => setNetworkPower(Number(e.target.value))}
+                    />
+                    <select
+                      defaultValue={selectNetworkPower}
+                      onChange={(e) => setSelectNetworkPower(Number(e.target.value))}
+                    >
+                      <option value="1">GH/s</option>
+                      <option value="1000">TH/s</option>
+                      <option value="1000000">PH/s</option>
+                      <option value="1000000000">EH/s</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="input">
+                  <span className="crypto-name"><img src="/eth.svg" alt="" /> Ethereum (ETH)</span>
+                  <div>
+                    <input type="number"
+                      defaultValue={networkPower}
+                      onChange={(e) => setNetworkPower(Number(e.target.value))}
+                    />
+                    <select
+                      defaultValue={selectNetworkPower}
+                      onChange={(e) => setSelectNetworkPower(Number(e.target.value))}
+                    >
+                      <option value="1">GH/s</option>
+                      <option value="1000">TH/s</option>
+                      <option value="1000000">PH/s</option>
+                      <option value="1000000000">EH/s</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="input">
-              <span>Enter <strong>Network Power</strong> For Desired Coin</span>
-              <div>
-                <input type="number"
-                  defaultValue={networkPower}
-                  onChange={(e) => setNetworkPower(Number(e.target.value))}
-                />
-                <select
-                  defaultValue={selectNetworkPower}
-                  onChange={(e) => setSelectNetworkPower(Number(e.target.value))}
-                >
-                  <option value="1">GH/s</option>
-                  <option value="1000">TH/s</option>
-                  <option value="1000000">PH/s</option>
-                  <option value="1000000000">EH/s</option>
-                </select>
-              </div>
-            </div>
-            <div className="input">
-              <span>Enter <strong>Block Reward</strong> For Desired Coin</span>
-              <div>
-                <input type="number"
-                  value={selectBlockReward}
-                  onChange={(e) => setSelectBlockReward(Number(e.target.value))}
-                />
-                <select
-                  id="block-reward"
-                  defaultValue={selectBlockReward}
-                  onChange={(e) => onChangeBlockReward(e)}
-                >
-                  <option value="30">RLT</option>
-                  <option value="30000">SAT (BTC)</option>
-                  <option value="0.005">ETH</option>
-                  <option value="0.012">BNB</option>
-                  <option value="3">MATIC</option>
-                  <option value="20">DOGE</option>
-                </select>
-              </div>
-            </div>
-            <div className="input">
-              <span>Choose <strong>Your Currency</strong> For Convertion</span>
-              <div>
-                <select
-                  className="currency"
-                  value={fiatType}
-                  onChange={(e) => setFiatType(e.target.value)}
-                >
-                  <option value="brl">BRL</option>
-                  <option value="eur">EUR</option>
-                  <option value="jpy">JPY</option>
-                  <option value="usd">USD</option>
-                </select>
+              <div className="crypto-inputs-right">
+                <div className="input">
+                  <span className="crypto-name"><img src="/bnb.svg" alt="" /> Binance (BNB)</span>
+                  <div>
+                    <input type="number"
+                      defaultValue={networkPower}
+                      onChange={(e) => setNetworkPower(Number(e.target.value))}
+                    />
+                    <select
+                      defaultValue={selectNetworkPower}
+                      onChange={(e) => setSelectNetworkPower(Number(e.target.value))}
+                    >
+                      <option value="1">GH/s</option>
+                      <option value="1000">TH/s</option>
+                      <option value="1000000">PH/s</option>
+                      <option value="1000000000">EH/s</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="input">
+                  <span className="crypto-name"><img src="/matic.svg" alt="" /> Polygon (MATIC)</span>
+                  <div>
+                    <input type="number"
+                      defaultValue={networkPower}
+                      onChange={(e) => setNetworkPower(Number(e.target.value))}
+                    />
+                    <select
+                      defaultValue={selectNetworkPower}
+                      onChange={(e) => setSelectNetworkPower(Number(e.target.value))}
+                    >
+                      <option value="1">GH/s</option>
+                      <option value="1000">TH/s</option>
+                      <option value="1000000">PH/s</option>
+                      <option value="1000000000">EH/s</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="input">
+                  <span className="crypto-name"><img src="/doge.svg" alt="" /> Dogecoin (DOGE)</span>
+                  <div>
+                    <input type="number"
+                      defaultValue={networkPower}
+                      onChange={(e) => setNetworkPower(Number(e.target.value))}
+                    />
+                    <select
+                      defaultValue={selectNetworkPower}
+                      onChange={(e) => setSelectNetworkPower(Number(e.target.value))}
+                    >
+                      <option value="1">GH/s</option>
+                      <option value="1000">TH/s</option>
+                      <option value="1000000">PH/s</option>
+                      <option value="1000000000">EH/s</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className="output-area">
-          <div>
-            <span>Expected Reward</span>
+          <div className="output-area-inner">
+            <span className="output-area-title">Enter <strong>Your</strong> Desired</span>
+            <div className="output-area-inputs">
+              <div className="input">
+                <span>Goal Power</span>
+                <div>
+                  <input type="number"
+                    defaultValue={goalPower}
+                    onChange={(e) => setGoalPower(Number(e.target.value))}
+                  />
+                  <select
+                    defaultValue={selectGoalPower}
+                    onChange={(e) => setSelectGoalPower(Number(e.target.value))}
+                  >
+                    <option value="1">GH/s</option>
+                    <option value="1000">TH/s</option>
+                    <option value="1000000">PH/s</option>
+                    <option value="1000000000">EH/s</option>
+                  </select>
+                </div>
+              </div>
+              <div className="input">
+                <span>Currency</span>
+                <div>
+                  <select
+                    className="currency"
+                    value={fiatType}
+                    onChange={(e) => setFiatType(e.target.value)}
+                  >
+                    <option value="brl">BRL</option>
+                    <option value="eur">EUR</option>
+                    <option value="jpy">JPY</option>
+                    <option value="usd">USD</option>
+                  </select>
+                </div>
+              </div>
+            </div>
             <table>
               <thead>
                 <tr>
                   <td className="title"></td>
-                  <td className="top-table">{crypto.toUpperCase()}</td>
-                  <td></td>
-                  <td className="top-table">{fiatType.toUpperCase()}</td>
+                  <td className="top-table">{`${fiatType.toUpperCase()}/month`}</td>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Block Reward</td>
-                  <td>{blockReward === 0 ? "-" : blockReward.toFixed(8)}</td>
-                  <td></td>
+                  <td><img src="/rlt.svg" alt="" />RLT</td>
                   <td>{fiat === 0 ? "-" : fiat.toFixed(2)}</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <td>Daily Reward</td>
-                  <td>{blockReward === 0 ? "-" : (blockReward * 144).toFixed(7)}</td>
-                  <td></td>
                   <td>{fiat === 0 ? "-" : (fiat * 144).toFixed(2)}</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <td>Weekly Reward</td>
-                  <td>{blockReward === 0 ? "-" : (blockReward * 1008).toFixed(6)}</td>
-                  <td></td>
                   <td>{fiat === 0 ? "-" : (fiat * 1008).toFixed(2)}</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <td>Monthly Reward</td>
-                  <td className="bottom-table">{blockReward === 0 ? "-" : (blockReward * 4320).toFixed(5)}</td>
-                  <td></td>
                   <td className="bottom-table">{fiat === 0 ? "-" : (fiat * 4320).toFixed(2)}</td>
                 </tr>
               </tbody>

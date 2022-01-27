@@ -43,105 +43,118 @@ export const BetterCoinArea = styled.div`
     display: flex;
     justify-content: center;
     height: calc(100% - 100px);
-    max-height: 400px;
+    max-height: 340px;
     min-width: 850px;
     color: #fff;
+    strong {
+      color: #49ACB5;
+    }
     .input-area {
-      width: 42%;
-      max-width: 378px;
+      width: 55%;
+      max-width: 450px;
       height: 100%;
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      div {
+      .input-area-inner {
         width: 90%;
         height: 95%;
+        padding: 0 5px;
         border-radius: 10px;
         background-color: #2F3045;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        .input {
-          height: auto;
-          width: 90%;
-          align-items: flex-start;
-          span strong {
-            color: #49ACB5;
+      }
+    }
+    .input {
+      height: auto;
+      width: 100%;
+      align-items: flex-start;
+      margin: 10px 5px;
+      div {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        input {
+          margin: 5px 0 0 5px;
+          width: 60%;
+          height: 35px;
+          border-bottom-left-radius: 7px;
+          border-top-left-radius: 7px;
+          border-style: none;
+          outline: none;
+          padding-left: 10px;
+          background-color: #181928;
+          color: #fff;
+          &:focus {
+            border: 1px solid #8984b1;
           }
-          div {
-            flex-direction: row;
-            justify-content: center;
-            width: 100%;
-            input {
-              margin-top: 5px;
-              width: 75%;
-              height: 35px;
-              border-bottom-left-radius: 7px;
-              border-top-left-radius: 7px;
-              border-style: none;
-              outline: none;
-              padding-left: 10px;
-              background-color: #181928;
-              color: #fff;
-              &:focus {
-                border: 1px solid #8984b1;
-              }
-              &::-webkit-outer-spin-button,
-              &::-webkit-inner-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-              }
-            }
-            select {
-              margin-top: 5px;
-              width: 30%;
-              height: 35px;
-              border-bottom-right-radius: 7px;
-              border-top-right-radius: 7px;
-              border-style: none;
-              outline: none;
-              background-color: #181928;
-              color: #fff;
-              text-align: center;
-              &:focus {
-                border: 1px solid #8984b1;
-              }
-            }
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
           }
         }
       }
     }
+    .output-area-inputs {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+    }
+    .crypto-inputs {
+      display: flex;
+      flex-direction: row;
+    }
+    .crypto-inputs-left,
+    .crypto-inputs-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .output-area {
-      width: 58%;
+      width: 40%;
       max-width: 522px;
       height: 100%;
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      div {
+      .output-area-inner {
         width: 90%;
         height: 95%;
         border-radius: 10px;
         background-color: #2F3045;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         align-items: center;
-        span {
-          font-size: 25px;
-          font-weight: bold;
-        }
-        
       }
+    }
+  }
+  select {
+    margin-top: 5px;
+    width: 35%;
+    height: 35px;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+    border-style: none;
+    outline: none;
+    background-color: #181928;
+    color: #fff;
+    text-align: center;
+    &:focus {
+      border: 1px solid #8984b1;
     }
   }
   .currency{
     border-radius 7px;
+    width: 80%;
   }
   table {
     width: 90%;
-    height: 70%;
+    height: 60%;
     padding: 15px;
     background-color: #181928;
     border-spacing: 0px;
@@ -150,22 +163,19 @@ export const BetterCoinArea = styled.div`
   th {
     text-align: center;
   }
+  tbody {
+    height: 15px;
+  }
   td:nth-child(1){
+    display: flex;
     width: 100px;
     text-align: right;
     padding-right: 15px;
   }
-  td:nth-child(3){
-    width: 8px;
-  }
-  td:nth-child(2),
-  td:nth-child(4){
+  td:nth-child(2){
     background-color: #2F3045;
     text-align:center;
-    width: 110px;
-  }
-  td:nth-child(4){
-    width: 55px;
+    width: 90px;
   }
   thead:nth-child(1){
     height: 29px;
@@ -175,11 +185,23 @@ export const BetterCoinArea = styled.div`
   .top-table {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
   }
   .bottom-table {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
   }
+  .crypto-name {
+    display: flex;
+  }
+  .input-area-title,
+  .output-area-title {
+    margin-top: 20px;
+  }
+
+
+
   @media (max-width: 850px){
     height: fit-content;
     width: 100%;
@@ -200,7 +222,7 @@ export const BetterCoinArea = styled.div`
         max-width: 600px;
       }
       .output-area {
-        height: 300px;;
+        height: 340px;;
         min-height: 0px;
         width: 100%;
         max-width: 600px;
@@ -215,5 +237,9 @@ export const BetterCoinArea = styled.div`
         height: 220px;
       }
     }
+  }
+  img {
+    margin: 0 5px 0 10px;
+    width: 18px;
   }
 `;
