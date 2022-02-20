@@ -314,6 +314,12 @@ const BetterCoin = () => {
                   <td className="bottom-table">{fiat === 0 ? "-" : (fiat * 4320).toFixed(2)}</td>
                 </tr>
               </tbody>
+              <tbody>
+                <tr>
+                <td><img src="/doge.svg" alt="" />DOGE</td>
+                  <td className="bottom-table">{fiat === 0 ? "-" : (fiat * 4320).toFixed(2)}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
