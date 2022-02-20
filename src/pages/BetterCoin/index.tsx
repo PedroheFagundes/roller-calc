@@ -1,5 +1,6 @@
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { BetterCoinArea } from "./styled";
+import '../../components/MainStyles.css';
 
 const BetterCoin = () => {
 
@@ -117,8 +118,8 @@ const BetterCoin = () => {
 
   return (
     <BetterCoinArea>
-      <div className="intro"><span>In development <strong>right now</strong>!</span></div>
-      {/* <div className="description"><span>It is a <strong>technical</strong> and <strong>mathematical</strong> analysis. The better coin <strong>for you</strong> can vary depending on your strategy.</span></div>
+      <div className="intro"><span>Calculate which is the <strong>best coin</strong> to mine <strong>right now</strong>!</span></div>
+      <div className="description"><span>It is a <strong>technical</strong> and <strong>mathematical</strong> analysis. The better coin <strong>for you</strong> can vary depending on your strategy.</span></div>
       <div className="main-content">
         <div className="input-area">
           <div className="input-area-inner">
@@ -271,7 +272,6 @@ const BetterCoin = () => {
                   >
                     <option value="brl">BRL</option>
                     <option value="eur">EUR</option>
-                    <option value="jpy">JPY</option>
                     <option value="usd">USD</option>
                   </select>
                 </div>
@@ -292,7 +292,7 @@ const BetterCoin = () => {
               </tbody>
               <tbody>
                 <tr>
-                  <td>Daily Reward</td>
+                  <td><img src="/btc.svg" alt="" />BTC</td>
                   <td>{fiat === 0 ? "-" : (fiat * 144).toFixed(2)}</td>
                 </tr>
               </tbody>
@@ -311,7 +311,7 @@ const BetterCoin = () => {
             </table>
           </div>
         </div>
-      </div> */}
+      </div>
     </BetterCoinArea >
   );
 }
