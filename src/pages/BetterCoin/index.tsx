@@ -298,7 +298,7 @@ const BetterCoin = () => {
               </tbody>
               <tbody>
                 <tr>
-                  <td>Weekly Reward</td>
+                <td><img src="/eth.svg" alt="" />ETH</td>
                   <td>{fiat === 0 ? "-" : (fiat * 1008).toFixed(2)}</td>
                 </tr>
               </tbody>
