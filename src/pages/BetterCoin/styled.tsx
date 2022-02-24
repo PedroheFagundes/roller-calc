@@ -196,14 +196,28 @@ export const BetterCoinArea = styled.div`
     margin-top: 20px;
   }
 
-
+  img {
+    margin: 0 5px 0 10px;
+    width: 18px;
+  }
+  .crypto-logo {
+    display: flex;
+    align-items: center;
+  }
 
   @media (max-width: 850px){
     height: fit-content;
     width: 100%;
-    .intro {
+    .intro, .description {
       font-size: 20px;
       min-width: 0px;
+    }
+    .intro {
+      margin-bottom: 50px;
+    }
+    .description {
+      margin-bottom: 35px;
+      padding: 0 5px;
     }
     .main-content {
       flex-direction: column;
@@ -218,7 +232,7 @@ export const BetterCoinArea = styled.div`
         max-width: 600px;
       }
       .output-area {
-        height: 340px;;
+        height: 380px;;
         min-height: 0px;
         width: 100%;
         max-width: 600px;
@@ -234,12 +248,5 @@ export const BetterCoinArea = styled.div`
       }
     }
   }
-  img {
-    margin: 0 5px 0 10px;
-    width: 18px;
-  }
-  .crypto-logo {
-    display: flex;
-    align-items: center;
-  }
+
 `;

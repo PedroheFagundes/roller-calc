@@ -15,8 +15,6 @@
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  height: 100%;
-  width: 100vw;
   background-color: #181928;
   display: flex;
 }
