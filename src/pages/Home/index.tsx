@@ -212,7 +212,7 @@ const Home = () => {
                 >
                   <option value="BRL">BRL</option>
                   <option value="EUR">EUR</option>
-                  <option value="USD">USD</option>
+                  <option value="USDT">USD</option>
                 </select>
               </div>
             </div>
@@ -227,7 +227,7 @@ const Home = () => {
                   <td className="title"></td>
                   <td className="top-table">{crypto.toUpperCase()}</td>
                   <td></td>
-                  <td className="top-table">{fiatType.toUpperCase()}</td>
+                  <td className="top-table">{fiatType === "USDT" ? "USD" : fiatType.toUpperCase()}</td>
                 </tr>
               </thead>
               <tbody>

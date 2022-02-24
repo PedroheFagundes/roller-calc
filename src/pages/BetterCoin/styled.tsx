@@ -43,7 +43,7 @@ export const BetterCoinArea = styled.div`
     display: flex;
     justify-content: center;
     height: calc(100% - 100px);
-    max-height: 340px;
+    max-height: 360px;
     min-width: 850px;
     color: #fff;
     strong {
@@ -116,7 +116,7 @@ export const BetterCoinArea = styled.div`
     }
     .output-area {
       width: 40%;
-      max-width: 522px;
+      max-width: 365px;
       height: 100%;
       display: flex;
       align-items: flex-start;
@@ -167,15 +167,11 @@ export const BetterCoinArea = styled.div`
     height: 15px;
   }
   td:nth-child(1){
-    display: flex;
-    width: 100px;
-    text-align: right;
-    padding-right: 15px;
+    width: 140px;
   }
   td:nth-child(2){
     background-color: #2F3045;
     text-align:center;
-    width: 90px;
   }
   thead:nth-child(1){
     height: 29px;
@@ -241,5 +237,9 @@ export const BetterCoinArea = styled.div`
   img {
     margin: 0 5px 0 10px;
     width: 18px;
+  }
+  .crypto-logo {
+    display: flex;
+    align-items: center;
   }
 `;

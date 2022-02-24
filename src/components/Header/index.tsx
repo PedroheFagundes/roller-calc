@@ -23,14 +23,12 @@ const Header = () => {
             <li onClick={() => toggleNavBar()}><Link to="/" onClick={() => setChosenPage(("Calculator"))}>Calculator</Link></li>
             <li onClick={() => toggleNavBar()}><Link to="/better-coin" onClick={() => setChosenPage(("Better Coin to Mine"))}>Better Coin to Mine</Link></li>
             <li className='soon'>Data Tables <span>soon</span></li>
-            <li className='soon'>Strategies <span>soon</span></li>
           </ul>
           : <h1 className='chosen-page'>{chosenPage}</h1>}
         <ul className='web-navbar'>
           <li><Link to="/">Calculator</Link></li>
           <li><Link to="/better-coin">Better Coin to Mine</Link></li>
           <li className='soon'>Data Tables <span>soon</span></li>
-          <li className='soon'>Strategies <span>soon</span></li>
         </ul>
       </div>
     </HeaderArea>
