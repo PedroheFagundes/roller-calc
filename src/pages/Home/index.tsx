@@ -92,7 +92,7 @@ const Home = () => {
   if (crypto === "RLT" && fiatType === "BRL") {
     requestURL = `https://api.binance.com/api/v3/trades?symbol=BUSDBRL`;
   }
-  else if (crypto === "RLT" && fiatType === "USD") {
+  else if (crypto === "RLT" && fiatType === "USDT") {
     requestURL = `https://api.binance.com/api/v3/trades?symbol=BUSDUSDT`;
   }
   else if (crypto === "RLT" && fiatType === "EUR") {
