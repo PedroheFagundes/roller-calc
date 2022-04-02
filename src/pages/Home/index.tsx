@@ -197,6 +197,7 @@ const Home = () => {
                   <option value="0.012">BNB</option>
                   <option value="3">MATIC</option>
                   <option value="20">DOGE</option>
+                  <option value="0.05">SOL</option>
                 </select>
               </div>
             </div>

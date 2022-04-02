@@ -43,7 +43,7 @@ export const BetterCoinArea = styled.div`
     display: flex;
     justify-content: center;
     height: calc(100% - 100px);
-    max-height: 360px;
+    max-height: 420px;
     min-width: 850px;
     color: #fff;
     strong {
@@ -153,6 +153,7 @@ export const BetterCoinArea = styled.div`
     width: 80%;
   }
   table {
+    margin-top: 18px;
     width: 90%;
     height: 60%;
     padding: 15px;

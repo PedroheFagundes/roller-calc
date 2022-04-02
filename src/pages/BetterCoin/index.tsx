@@ -56,6 +56,14 @@ const BetterCoin = () => {
     const selectDOGENetworkPower = Number(localStorage.getItem('lsSelectDOGENetworkPower')) || 1000000000;
     return selectDOGENetworkPower;
   };
+  const initialSOLNetworkPower = () => {
+    const SOLNetworkPower = Number(localStorage.getItem('lsSOLNetworkPower')) || 0;
+    return SOLNetworkPower;
+  };
+  const initialSelectSOLNetworkPower = () => {
+    const selectSOLNetworkPower = Number(localStorage.getItem('lsSelectSOLNetworkPower')) || 1000000000;
+    return selectSOLNetworkPower;
+  }; 
   const initialGoalPower = () => {
     const goalPower = Number(localStorage.getItem('lsGoalPower')) || 0;
     return goalPower;
@@ -71,12 +79,14 @@ const BetterCoin = () => {
   const [BNBValue, setBNBValue] = useState(0);
   const [MATICValue, setMATICValue] = useState(0);
   const [DOGEValue, setDOGEValue] = useState(0);
+  const [SOLValue, setSOLValue] = useState(0);
   const [RLTBlockReward, setRLTBlockReward] = useState(0);
   const [BTCBlockReward, setBTCBlockReward] = useState(0);
   const [ETHBlockReward, setETHBlockReward] = useState(0);
   const [BNBBlockReward, setBNBBlockReward] = useState(0);
   const [MATICBlockReward, setMATICBlockReward] = useState(0);
   const [DOGEBlockReward, setDOGEBlockReward] = useState(0);
+  const [SOLBlockReward, setSOLBlockReward] = useState(0);
   const [fiatType, setFiatType] = useState(initialFiatType);
   const [RLTNetworkPower, setRLTNetworkPower] = useState(initialRLTNetworkPower);
   const [selectRLTNetworkPower, setSelectRLTNetworkPower] = useState(initialSelectRLTNetworkPower);
@@ -90,6 +100,8 @@ const BetterCoin = () => {
   const [selectMATICNetworkPower, setSelectMATICNetworkPower] = useState(initialSelectMATICNetworkPower);
   const [DOGENetworkPower, setDOGENetworkPower] = useState(initialDOGENetworkPower);
   const [selectDOGENetworkPower, setSelectDOGENetworkPower] = useState(initialSelectDOGENetworkPower);
+  const [SOLNetworkPower, setSOLNetworkPower] = useState(initialSOLNetworkPower);
+  const [selectSOLNetworkPower, setSelectSOLNetworkPower] = useState(initialSelectSOLNetworkPower);
   const [goalPower, setGoalPower] = useState(initialGoalPower);
   const [selectGoalPower, setSelectGoalPower] = useState(initialSelectGoalPower);
 
@@ -199,7 +211,7 @@ const BetterCoin = () => {
 
 
   useEffect(() => {
-    let MATICReward = (goalPower * selectGoalPower) / (MATICNetworkPower * selectMATICNetworkPower) * 3
+    let MATICReward = (goalPower * selectGoalPower) / (MATICNetworkPower * selectMATICNetworkPower) * 3;
     if (isNaN(MATICReward)) MATICReward = 0;
     setMATICBlockReward(MATICReward);
 
@@ -242,7 +254,29 @@ const BetterCoin = () => {
     };
   }, [DOGEBlockReward, DOGENetworkPower, fiatType, goalPower, selectDOGENetworkPower, selectGoalPower]);
 
-  let order: any = [RLTValue, BTCValue, ETHValue, BNBValue, MATICValue, DOGEValue];
+  useEffect(() => {
+    let SOLReward = (goalPower * selectGoalPower) / (SOLNetworkPower * selectSOLNetworkPower) * 0.05;
+    if (isNaN(SOLReward)) SOLReward = 0;
+    setSOLBlockReward(SOLReward);
+
+    localStorage.setItem('lsFiatType', fiatType);
+    localStorage.setItem('lsSOLNetworkPower', SOLNetworkPower.toString());
+    localStorage.setItem('lsSelectSOLNetworkPower', selectSOLNetworkPower.toString());
+    localStorage.setItem('lsGoalPower', goalPower.toString());
+    localStorage.setItem('lsSelectGoalPower', selectGoalPower.toString());
+
+    var SOLRequestURL = `https://api.binance.com/api/v3/trades?symbol=SOL${fiatType}`;
+    var SOLRequest = new XMLHttpRequest();
+    SOLRequest.open("GET", SOLRequestURL);
+    SOLRequest.responseType = "json";
+    SOLRequest.send();
+    SOLRequest.onload = function () {
+      var SOLResponse = SOLRequest.response[0].price;
+      setSOLValue(SOLResponse * SOLBlockReward * 4320);
+    };
+  }, [SOLBlockReward, SOLNetworkPower, fiatType, goalPower, selectSOLNetworkPower, selectGoalPower]);
+
+  let order: any = [RLTValue, BTCValue, ETHValue, BNBValue, MATICValue, DOGEValue, SOLValue];
   order.sort( function(a: number, b: number){
     if(a > b) return 1;
     if(a < b) return -1;
@@ -291,6 +325,13 @@ const BetterCoin = () => {
     </tr>
   );
 
+  const SOLElement = (
+    <tr>
+      <td className="crypto-logo"><img src="/sol.svg" alt="" />{(SOLBlockReward * 4320).toFixed(3)} SOL</td>
+      <td>{SOLValue === 0 ? "-" : SOLValue.toFixed(2)}</td>
+    </tr>
+  );
+
   var RLTIndex = order.indexOf(RLTValue);
   if (RLTIndex !== -1) {
     order[RLTIndex] = RLTElement;
@@ -319,6 +360,11 @@ const BetterCoin = () => {
   var DOGEIndex = order.indexOf(DOGEValue);
   if (DOGEIndex !== -1) {
     order[DOGEIndex] = DOGEElement;
+  }
+
+  var SOLIndex = order.indexOf(SOLValue);
+  if (SOLIndex !== -1) {
+    order[SOLIndex] = SOLElement;
   }
   
   return (
@@ -384,10 +430,7 @@ const BetterCoin = () => {
                       <option value="1000000000">EH/s</option>
                     </select>
                   </div>
-                </div>
-              </div>
-              <div className="crypto-inputs-right">
-                <div className="input">
+                  <div className="input">
                   <span className="crypto-name"><img src="/bnb.svg" alt="" /> Binance (BNB)</span>
                   <div>
                     <input type="number"
@@ -405,6 +448,10 @@ const BetterCoin = () => {
                     </select>
                   </div>
                 </div>
+                </div>
+              </div>
+              <div className="crypto-inputs-right">
+
                 <div className="input">
                   <span className="crypto-name"><img src="/matic.svg" alt="" /> Polygon (MATIC)</span>
                   <div>
@@ -433,6 +480,24 @@ const BetterCoin = () => {
                     <select
                       defaultValue={selectDOGENetworkPower}
                       onChange={(e) => setSelectDOGENetworkPower(Number(e.target.value))}
+                    >
+                      <option value="1">GH/s</option>
+                      <option value="1000">TH/s</option>
+                      <option value="1000000">PH/s</option>
+                      <option value="1000000000">EH/s</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="input">
+                  <span className="crypto-name"><img src="/sol.svg" alt="" /> Solana (SOL)</span>
+                  <div>
+                    <input type="number"
+                      defaultValue={SOLNetworkPower}
+                      onChange={(e) => setSOLNetworkPower(Number(e.target.value))}
+                    />
+                    <select
+                      defaultValue={selectSOLNetworkPower}
+                      onChange={(e) => setSelectSOLNetworkPower(Number(e.target.value))}
                     >
                       <option value="1">GH/s</option>
                       <option value="1000">TH/s</option>
@@ -489,6 +554,9 @@ const BetterCoin = () => {
                   <td className="top-table">{`${fiatType === "USDT" ? "USD" : fiatType.toUpperCase()}/month`}</td>
                 </tr>
               </thead>
+              <tbody>
+                {order[6]}
+              </tbody>
               <tbody>
                 {order[5]}
               </tbody>
