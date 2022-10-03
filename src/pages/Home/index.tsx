@@ -30,7 +30,7 @@ const Home = () => {
   };
   const initialBlockReward = () => {
     const selectBlockReward =
-      Number(localStorage.getItem("lsSelectBlockReward")) || 30;
+      Number(localStorage.getItem("lsSelectBlockReward")) || 20;
     return selectBlockReward;
   };
 
@@ -191,7 +191,7 @@ const Home = () => {
                   defaultValue={selectBlockReward}
                   onChange={(e) => onChangeBlockReward(e)}
                 >
-                  <option value="30">RLT</option>
+                  <option value="20">RLT</option>
                   <option value="30000">SAT (BTC)</option>
                   <option value="0.005">ETH</option>
                   <option value="0.012">BNB</option>
