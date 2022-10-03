@@ -107,7 +107,7 @@ const BetterCoin = () => {
 
 
   useEffect(() => {
-    let RLTReward = (goalPower * selectGoalPower) / (RLTNetworkPower * selectRLTNetworkPower) * 30;
+    let RLTReward = (goalPower * selectGoalPower) / (RLTNetworkPower * selectRLTNetworkPower) * 20;
     if (isNaN(RLTReward)) RLTReward = 0;
     setRLTBlockReward(RLTReward);
 
